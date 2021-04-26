@@ -1,7 +1,7 @@
 {
   "name": "cray_calcul",
-  "productName": "Cray Calcul",
-  "version": "1.0.1",
+  "productName": "CrayCalcul",
+  "version": "1.0.2",
   "description": "The best calculate app.",
   "main": "src/index.js",
   "scripts": {
@@ -11,7 +11,9 @@
     "publish": "electron-forge publish",
     "lint": "eslint src --color"
   },
-  "keywords": ["calcul"],
+  "keywords": [
+    "calcul"
+  ],
   "author": "MoskalykA",
   "license": "MIT",
   "config": {
@@ -29,14 +31,14 @@
         ]
       },
       "electronPackagerConfig": {
+        "dir": "src",
         "packageManager": "npm",
-        "icon": "src/icon.png"
+        "asar": true,
+        "quiet": true,
+        "icon": "src/icon.ico"
       },
       "electronWinstallerConfig": {
-        "name": "CrayCalcul",
-        "exe": "cray_calcul.exe",
-        "iconUrl": "src/icon.png",
-        "setupIcon": "src/icon.png"
+        "name": "CrayCalcul"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -60,10 +62,10 @@
     "babel-preset-react": "^6.24.1",
     "electron-forge": "^5.2.4",
     "electron-prebuilt-compile": "8.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^15.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.20.5"
   }
 }

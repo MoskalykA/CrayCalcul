@@ -1,85 +1,93 @@
 <!DOCTYPE html>
-<html>
+<!--suppress JSUnresolvedFunction -->
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Cray Calcul</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
   </head>
 <body>
     <div id="app">
       <div class="mx-auto overflow-hidden shadow-lg mb-2 bg-purple-900 shadow-lg border rounded-lg md:w-3/6 sm:w-4/6">
-        <div class="">
+        <div>
           <div class="p-5 text-white text-center text-3xl bg-purple-900"><span class="text-orange-500">Cray</span> Calcul</div>
           <div class="pt-16 p-5 pb-0 text-white text-right text-3xl bg-purple-800">{{ total }}</div>
           <div class="p-5 text-white text-right text-3xl bg-purple-800">= <span class="text-orange-500">{{ total }}</span></div>
-      
+
            <div class="flex items-stretch bg-purple-900 h-24">
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(' % ')">%</div>
               </div>
-            
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate('( ')">(</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(' )')">)</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(' / ')">÷</div>
               </div>
           </div>
-        
+
           <div class="flex items-stretch bg-purple-900 h-24">
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(7)">7</div>
               </div>
-            
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(8)">8</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(9)">9</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(' * ')">×</div>
               </div>
           </div>
-                
+
           <div class="flex items-stretch bg-purple-900 h-24">
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(4)">4</div>
               </div>
-            
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(5)">5</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(6)">6</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(' - ')">-</div>
               </div>
           </div>
-                
+
           <div class="flex items-stretch bg-purple-900 h-24">
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(1)">1</div>
               </div>
-            
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(2)">2</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(3)">3</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="total = ''">C</div>
               </div>
@@ -99,25 +107,24 @@
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate('+')"> + </div>
               </div>
-            
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate(0)">0</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="addCalculate('.')">.</div>
               </div>
-             
+
               <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
                 <div class="rounded-full h-20 w-20 flex items-center bg-orange-500 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none" v-on:click="endCalculate()">=</div>
               </div>
-          </div>    
+          </div>
         </div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="./renderer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
       const app = new Vue({
         el: '#app',
@@ -125,14 +132,11 @@
           total: ''
         },
         methods: {
-          evalCalculate: function (obj) {
-            return Function('"use strict";return (' + obj + ')')()
-          },
           addCalculate: function (add) {
             this.total += add
           },
           endCalculate: function () {
-            this.total = this.evalCalculate(this.total)
+            this.total = eval(this.total)
           }
         }
       })
